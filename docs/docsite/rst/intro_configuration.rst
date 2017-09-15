@@ -54,7 +54,7 @@ Environmental configuration
 
 Ansible also allows configuration of settings via environment variables.  If
 these environment variables are set, they will override any setting loaded
-from the configuration file.  These variables are defined in `constants.py <https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py>`_.
+from the configuration file.   See :doc:`config` for a description of the environment variables.
 
 .. _config_values_by_section:
 
@@ -79,7 +79,7 @@ action_plugins
 Actions are pieces of code in ansible that enable things like module execution, templating, and so forth.
 
 This is a developer-centric feature that allows low-level extensions around Ansible to be loaded from
-different locations::
+different lo" *cations::
 
    action_plugins = ~/.ansible/plugins/action_plugins/:/usr/share/ansible_plugins/action_plugins
 
@@ -135,7 +135,7 @@ be directly edited because Ansible may overwrite the contents of the file.
 
 There are several special placeholder values that can be placed in the ``ansible_managed`` string.  These are not in the default ``ansible_managed`` string because they can cause Ansible to behave as though the
 entire template has changed when only the ansible_managed string has
-changed.  
+changed.
 
 These placeholder values, along with the situations which can lead Ansible to
 report a template as changed when they are used, are listed below:
@@ -152,7 +152,7 @@ report a template as changed when they are used, are listed below:
 * ``{file}``: expands to the name of the full path to the template file.  If
   Ansible is run with multiple checkouts of the same configuration repository
   (for instance, in each sysadmin's home directory), then the path will differ
-  in each checkout causing Ansible to behave as though the file has been modified.  
+  in each checkout causing Ansible to behave as though the file has been modified.
 * ``{host}``: expands to the hostname of the machine :program:`ansible` is run
   on.  If :program:`ansible` is invoked on multiple machines (for instance,
   each sysadmin can checkout the configuration repository on their workstation
@@ -245,11 +245,11 @@ command_warnings
 
 .. versionadded:: 1.8
 
-By default since Ansible 1.8, Ansible will issue a warning when the shell or 
-command module is used and the command appears to be similar to an existing 
+By default since Ansible 1.8, Ansible will issue a warning when the shell or
+command module is used and the command appears to be similar to an existing
 Ansible module. For example, this can include reminders to use the 'git' module
-instead of shell commands to execute 'git'.  Using modules when possible over 
-arbitrary shell commands can lead to more reliable and consistent playbook runs, 
+instead of shell commands to execute 'git'.  Using modules when possible over
+arbitrary shell commands can lead to more reliable and consistent playbook runs,
 and also easier to maintain playbooks::
 
     command_warnings = False
@@ -1188,7 +1188,7 @@ This is the location of the ssh binary. It defaults to ``ssh`` which will use th
 
   ssh_executable="/usr/local/bin/ssh"
 
-This option is usually not required, it might be useful when access to system ssh is restricted, or when using ssh wrappers to connect to remote hosts. 
+This option is usually not required, it might be useful when access to system ssh is restricted, or when using ssh wrappers to connect to remote hosts.
 
 .. _accelerate_settings:
 
@@ -1314,4 +1314,3 @@ ignore_certs
 ============
 
 If set to *yes*, ansible-galaxy will not validate TLS certificates. This can be useful for testing against a server with a self-signed certificate.
-
